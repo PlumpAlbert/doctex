@@ -1,0 +1,15 @@
+name: LaTeX Github Action
+description: Github Action for compiling LaTeX documents written in Cyrillic following my university rules.
+author: Plump Albert
+inputs:
+  root_file:
+    description: The root LaTeX file to be compiled
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    FILENAME: ${{ inputs.root_file }}
+branding:
+  icon: book
+  color: blue
