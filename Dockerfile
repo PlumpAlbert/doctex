@@ -21,7 +21,8 @@ RUN tlmgr paper a4 \
 # make times new roman visible for latex
 RUN cp "/usr/local/texlive/texmf-var/fonts/conf/texlive-fontconfig.conf" /etc/fonts/conf.d/09-texlive.conf \
     && fc-cache -fsv \
-    && git clone 'https://github.com/plumpalbert/latex-texmf' /root/texmf # download custom LaTeX classes
+    && git clone 'https://github.com/plumpalbert/latex-texmf' /root/texmf \
+    && cp -r /root/texmf/* /usr/local/texlive/texmf-local
 
 ENV PATH=/usr/local/texlive/bin/x86_64-linux:$PATH
 ENV SRC_DIR=/work/src
