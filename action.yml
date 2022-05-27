@@ -7,7 +7,7 @@ inputs:
     required: true
 runs:
   using: docker
-  image: plumpalbert/doctex:latest
+  image: docker://plumpalbert/doctex:latest
   env:
     FILENAME: ${{ inputs.root_file }}
 branding:
