@@ -5,11 +5,17 @@ inputs:
   root_file:
     description: The root LaTeX file to be compiled
     required: true
+  source_dir:
+    default: /work/src
+  build_dir:
+    default: /work/build
 runs:
   using: docker
   image: docker://plumpalbert/doctex:latest
   env:
     FILENAME: ${{ inputs.root_file }}
+    SRC_DIR: ${{ inputs.source_dir }}
+    BUILD_DIR: ${{ inputs.build_dir }}
 branding:
   icon: book
   color: blue
