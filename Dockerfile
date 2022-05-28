@@ -9,7 +9,8 @@ RUN apk update && apk add --no-cache \
 # copy files into container
 COPY texlive.profile /tmp/tex-installer/texlive.profile
 COPY times/ /usr/share/fonts/times/
-COPY latexmkrc /root/.latexmkrc
+# copy latexmkrc to system-wide directory
+COPY latexmkrc /usr/local/share/latexmk/LatexMk
 # Obtain texlive installer
 RUN wget -qO- "https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz" \
     | tar xvz -C /tmp \
