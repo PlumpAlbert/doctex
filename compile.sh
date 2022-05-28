@@ -22,7 +22,7 @@ if [ -z "$CI" ]; then
 else
 	latexmk \
 		-pdfxe -ps- -dvi- \
-		-xelatex \
+		-xelatex -f -e '$max_repeat=10' \
 		-auxdir="$AUX_DIR" \
 		-outdir="$BUILD_DIR" \
 		$FILENAME
