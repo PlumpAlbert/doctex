@@ -22,14 +22,20 @@ RUN tlmgr paper a4 \
 # make times new roman visible for latex
 RUN cp "/usr/local/texlive/texmf-var/fonts/conf/texlive-fontconfig.conf" /etc/fonts/conf.d/09-texlive.conf \
     && fc-cache -fsv \
-    && git clone 'https://github.com/plumpalbert/latex-texmf' /root/texmf \
-    && cp -r /root/texmf/* /usr/local/texlive/texmf-local
+    && git clone 'https://github.com/plumpalbert/latex-texmf' /root/texmf
 
 ENV PATH=/usr/local/texlive/bin/x86_64-linux:$PATH
 ENV SRC_DIR=/work/src
 ENV BUILD_DIR=/work/build
 ENV AUX_DIR=${BUILD_DIR}
 ENV LOG_DIR=/work/log
+ENV TEXDIR=/usr/local/texlive
+ENV TEXMFCONFIG=/root/.texlive/texmf-config
+ENV TEXMFHOME=/root/texmf
+ENV TEXMFLOCAL=/usr/local/texlive/texmf-local
+ENV TEXMFSYSCONFIG=/usr/local/texlive/texmf-config
+ENV TEXMFSYSVAR=/usr/local/texlive/texmf-var
+ENV TEXMFVAR=/root/.texlive/texmf-var
 
 RUN mkdir -p "${SRC_DIR}" \
     && mkdir -p "${BUILD_DIR}" \

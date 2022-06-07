@@ -6,10 +6,7 @@ echo "## Updating custom classes repo :"
 cd /root/texmf
 git pull
 
-export TEXMFHOME=/root/texmf
-echo "## Set TEXMFHOME environment variable : $TEXMFHOME"
-
-echo "## Starting compilation ($( $CI && echo 'single run' || echo 'continuous' ))"
+echo "## Starting compilation ($($CI && echo 'single run' || echo 'continuous'))"
 cd "$SRC_DIR"
 if [ -z "$CI" ]; then
 	latexmk \
